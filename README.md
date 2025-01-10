@@ -32,7 +32,7 @@ Cada variante del modelo fue entrenada y evaluada exhaustivamente para medir su 
 Unet/
 ├── images/             # Imágenes de entrada utilizadas durante el entrenamiento
 ├── labels/             # Máscaras de segmentación asociadas a las imágenes de entrenamiento
-└── test/               # Imágenes y máscaras empleadas para la evaluación del modelo
+└──  test/              # Imágenes y máscaras empleadas para la evaluación del modelo
 ```
 ---
 
