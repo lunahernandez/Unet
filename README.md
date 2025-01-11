@@ -32,7 +32,7 @@ Cada variante del modelo fue entrenada y evaluada exhaustivamente para medir su 
 Unet/
 ├── images/             # Imágenes de entrada utilizadas durante el entrenamiento
 ├── labels/             # Máscaras de segmentación asociadas a las imágenes de entrenamiento
-└──  test/              # Imágenes y máscaras empleadas para la evaluación del modelo
+└── test/              # Imágenes y máscaras empleadas para la evaluación del modelo
 ```
 ---
 
@@ -52,35 +52,33 @@ Las imágenes han sido preprocesadas para normalizarlas al rango [0, 1]. Las má
 
 ### Modelos Dinámicos y Base
 
-| **Modelo**                                                                 | **Loss (Train)** | **Loss (Test)** | **Accuracy (Train)** | **Accuracy (Test)** |
-|---------------------------------------------------------------------------|------------------|-----------------|----------------------|---------------------|
-| 1. U-Net Estándar con Configuración Predeterminada                        | 0.0008           | 0.0492          | 99.96%               | 94.97%              |
-| 2. U-Net Dinámico con Configuración Base de Canales                       | 0.0008           | 0.0484          | 99.97%               | 95.11%              |
-| 3. U-Net Dinámico con Configuración Reducida de Canales                   | 0.0010           | 0.0497          | 99.96%               | 94.63%              |
-| 4. U-Net Dinámico con Configuración Más Ligera de Canales                 | 0.0013           | 0.0502          | 99.95%               | 94.88%              |
-| 5. U-Net Dinámico con Configuración Mínima de Canales                     | 0.0016           | 0.0470          | 99.92%               | 94.52%              |
+| **Modelo**                                                                 | **Loss (Train)** | **Loss (Test)** | **Accuracy (Train)** | **Accuracy (Test)** | **Visualización de Resultados**       |
+|---------------------------------------------------------------------------|------------------|-----------------|----------------------|---------------------|----------------------------------------|
+| 1. U-Net Estándar con Configuración Predeterminada                        | 0.0008           | 0.0492          | 99.96%               | 94.97%              | ![Resultado 1](Unet_1.png)     |
+| 2. U-Net Dinámico con Configuración Base de Canales                       | 0.0008           | 0.0484          | 99.97%               | 95.11%              | ![Resultado 2](Unet_2.png)     |
+| 3. U-Net Dinámico con Configuración Reducida de Canales                   | 0.0010           | 0.0497          | 99.96%               | 94.63%              | ![Resultado 3](Unet_3.png)     |
+| 4. U-Net Dinámico con Configuración Más Ligera de Canales                 | 0.0013           | 0.0502          | 99.95%               | 94.88%              | ![Resultado 4](Unet_4.png)     |
+| 5. U-Net Dinámico con Configuración Mínima de Canales                     | 0.0016           | 0.0470          | 99.92%               | 94.52%              | ![Resultado 5](Unet_5.png)     |
 
 ---
 
-### Modelos con Eliminación de Conexiones de Fuera hacia Dentro
+## Modelos con Eliminación de Conexiones de Fuera hacia Dentro
 
-| **Modelo**                                                                 | **Loss (Train)** | **Loss (Test)** | **Accuracy (Train)** | **Accuracy (Test)** |
-|---------------------------------------------------------------------------|------------------|-----------------|----------------------|---------------------|
-| 6. U-Net con Todas las Conexiones Skip (Stage 0)                          | 0.0015           | 0.0505          | 99.92%               | 94.50%              |
-| 7. U-Net sin Conexión Skip en la Última Capa (Stage 1)                    | 0.0108           | 0.0359          | 99.75%               | 94.82%              |
-| 8. U-Net sin Conexiones Skip en d3 y d4 (Stage 2)                         | 0.0018           | 0.0447          | 99.90%               | 94.86%              |
-| 9. U-Net sin Conexiones Skip en d2, d3 y d4 (Stage 3)                     | 0.0012           | 0.0377          | 99.94%               | 94.96%              |
+| **Modelo**                                                                 | **Loss (Train)** | **Loss (Test)** | **Accuracy (Train)** | **Accuracy (Test)** | **Visualización de Resultados**       |
+|---------------------------------------------------------------------------|------------------|-----------------|----------------------|---------------------|----------------------------------------|
+| 6. U-Net sin Conexión Skip en la Última Capa (Stage 1)                    | 0.0108           | 0.0359          | 99.75%               | 94.82%              | ![Resultado 6](Unet_6.png)     |
+| 7. U-Net sin Conexiones Skip en d3 y d4 (Stage 2)                         | 0.0018           | 0.0447          | 99.90%               | 94.86%              | ![Resultado 7](Unet_7.png)     |
+| 8. U-Net sin Conexiones Skip en d2, d3 y d4 (Stage 3)                     | 0.0012           | 0.0377          | 99.94%               | 94.96%              | ![Resultado 8](Unet_8.png)     |
 
 ---
 
-### Modelos con Eliminación de Conexiones de Dentro hacia Fuera
+## Modelos con Eliminación de Conexiones de Dentro hacia Fuera
 
-| **Modelo**                                                                 | **Loss (Train)** | **Loss (Test)** | **Accuracy (Train)** | **Accuracy (Test)** |
-|---------------------------------------------------------------------------|------------------|-----------------|----------------------|---------------------|
-| 10. U-Net con Todas las Conexiones Skip (Stage 0)                         | 0.0012           | 0.0500          | 99.94%               | 94.01%              |
-| 11. U-Net con Eliminación Progresiva de Conexiones Skip en d4 (Stage 1)   | 0.0014           | 0.0479          | 99.96%               | 94.06%              |
-| 12. U-Net con Eliminación Progresiva de Conexiones Skip en d4 y d3 (Stage 2)| 0.0016          | 0.0499          | 99.94%               | 94.89%              |
-| 13. U-Net con Eliminación Progresiva de Conexiones Skip en d4, d3 y d2 (Stage 3)| 0.0037      | 0.0596          | 99.87%               | 93.58%              |
+| **Modelo**                                                                 | **Loss (Train)** | **Loss (Test)** | **Accuracy (Train)** | **Accuracy (Test)** | **Visualización de Resultados**       |
+|---------------------------------------------------------------------------|------------------|-----------------|----------------------|---------------------|----------------------------------------|
+| 10. U-Net con Eliminación Progresiva de Conexiones Skip en d4 (Stage 1)   | 0.0014           | 0.0479          | 99.96%               | 94.06%              | ![Resultado 9](Unet_9.png)   |
+| 11. U-Net con Eliminación Progresiva de Conexiones Skip en d4 y d3 (Stage 2)| 0.0016          | 0.0499          | 99.94%               | 94.89%              | ![Resultado 10](Unet_10.png)   |
+| 12. U-Net con Eliminación Progresiva de Conexiones Skip en d4, d3 y d2 (Stage 3)| 0.0037      | 0.0596          | 99.87%               | 93.58%              | ![Resultado 11](Unet_11.png)   |
 
 ---
 
